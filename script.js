@@ -3,7 +3,7 @@ let currentPlayingId = null;
 
 async function loadData() {
     try {
-        const response = await fetch('data.json');
+        const response = await fetch(`data.json?v=${Date.now()}`, { cache: 'no-store' });
         const data = await response.json();
         displaySongs(data.songs);
     } catch (error) {

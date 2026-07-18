@@ -3,99 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Last?</title>
-
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="color-scheme" content="dark">
+    <title>Out of Service</title>
     <style>
-        body{
-            background: #0f0f0f;
-            color: white;
-            font-family: Arial;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            height:100vh;
-            margin:0;
-            text-align:center;
+        :root {
+            color-scheme: dark;
         }
 
-        .container{
-            width:90%;
-            max-width:500px;
+        * {
+            box-sizing: border-box;
         }
 
-        input{
-            width:100%;
-            padding:12px;
-            margin-top:15px;
-            box-sizing:border-box;
+        html, body {
+            margin: 0;
+            width: 100%;
+            min-height: 100%;
+            background: #000;
+            color: #f2f2f2;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
-        button{
-            margin-top:15px;
-            padding:10px 20px;
+        body {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 32px;
+            text-align: center;
+            overflow: hidden;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
-        #message{
-            margin-top:20px;
+        .status-card {
+            width: min(760px, 100%);
+        }
+
+        .status-label {
+            margin: 0 0 18px;
+            font-size: 12px;
+            letter-spacing: 0.45em;
+            text-transform: uppercase;
+            color: #7a7a7a;
+        }
+
+        h1 {
+            margin: 0 0 22px;
+            font-size: clamp(38px, 8vw, 84px);
+            line-height: 0.95;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        p {
+            margin: 0;
+            font-size: clamp(16px, 2vw, 20px);
+            line-height: 1.9;
+            color: #d5d5d5;
+        }
+
+        .fine-print {
+            margin-top: 22px;
+            font-size: 12px;
+            line-height: 1.8;
+            color: #666;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
+    <div class="status-card" role="status" aria-live="polite">
+        <p class="status-label">Temporary maintenance notice</p>
+        <h1>Out of Service</h1>
+        <p>
+            This page is currently offline while the contents are being reviewed, reorganized, and quietly retired,
+            so for the moment there is nothing to play, nothing to open, and nothing to continue from here;
+            if you reached this screen expecting the old experience, please treat it as intentionally unavailable,
+            because the route has been closed until a later update brings back something more appropriate to show.
+        </p>
+        <div class="fine-print">Please come back later.</div>
+    </div>
 
-<div class="container">
-
-    <h3>Maybe this is the last journey, so I gave you the secret message.</h3>
-
-    <p>Enter the secret key.</p>
-
-    <input id="key" type="text" placeholder="...">
-
-    <br>
-
-    <button onclick="check()">Continue</button>
-
-    <div id="message"></div>
-
-</div>
-
-<script>
-
-function check(){
-
-    const input = document.getElementById("key")
-        .value
-        .trim()
-        .toLowerCase();
-
-    const message = document.getElementById("message");
-
-    if(input === "lastm4ssagef0ryou"){
-
-        message.innerHTML = `
-            <p>One last page remains.</p>
-            <p>Following the trail...</p>
-        `;
-
-        setTimeout(() => {
-            window.location.href = "https://alles31.github.io/Birthday/massageforyou.html";
-        }, 2500);
-
-        return;
-    }
-
-    message.innerHTML = `
-        <p>Not this one.</p>
-    `;
-}
-
-document.getElementById("key").addEventListener("keypress", function(event){
-    if(event.key === "Enter"){
-        event.preventDefault();
-        check();
-    }
-});
-
-</script>
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('keydown', event => {
+            const key = event.key.toLowerCase();
+            if (
+                key === 'f12' ||
+                (event.ctrlKey && event.shiftKey && ['i', 'j', 'c'].includes(key)) ||
+                (event.ctrlKey && key === 'u')
+            ) {
+                event.preventDefault();
+            }
+        });
+    </script>
 
 </body>
 </html>

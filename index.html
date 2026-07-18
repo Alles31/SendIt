@@ -3,44 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Journey Through Our Songs - The Digital Keepsake</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="color-scheme" content="dark">
+    <title>Out of Service</title>
+    <style>
+        :root {
+            color-scheme: dark;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            width: 100%;
+            min-height: 100%;
+            background: #000;
+            color: #f2f2f2;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 32px;
+            text-align: center;
+            overflow: hidden;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .status-card {
+            width: min(760px, 100%);
+        }
+
+        .status-label {
+            margin: 0 0 18px;
+            font-size: 12px;
+            letter-spacing: 0.45em;
+            text-transform: uppercase;
+            color: #7a7a7a;
+        }
+
+        h1 {
+            margin: 0 0 22px;
+            font-size: clamp(38px, 8vw, 84px);
+            line-height: 0.95;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        p {
+            margin: 0;
+            font-size: clamp(16px, 2vw, 20px);
+            line-height: 1.9;
+            color: #d5d5d5;
+        }
+
+        .fine-print {
+            margin-top: 22px;
+            font-size: 12px;
+            line-height: 1.8;
+            color: #666;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header Section -->
-        <header class="header">
-            <h1 class="title">A Journey Through Our Songs</h1>
-            <p class="subtitle">THE DIGITAL JOURNAL</p>
-            <p class="quote">"Every note we've ever shared is a map leading back to the moments that defined us."</p>
-        </header>
-
-        <!-- Songs Section -->
-        <main class="songs-container">
-            <div id="songs-list"></div>
-        </main>
-
-        <!-- Unreleased Chapter -->
-        <section class="unreleased-section">
-            <div class="unreleased-icon">♪</div>
-            <p class="unreleased-label">UNRELEASED CHAPTER</p>
-            <p class="unreleased-quote">"Sometimes the silence between our favorite songs says more than the lyrics ever could."</p>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <p>HANDCRAFTED FOR A LIFETIME OF MEMORIES</p>
-            <div class="footer-links">
-                <a href="#our-story">OUR STORY</a>
-                <a href="#privacy">PRIVACY</a>
-                <a href="journey.html">JOURNEY</a>
-            </div>
-        </footer>
+    <div class="status-card" role="status" aria-live="polite">
+        <p class="status-label">Sorry Your Page is Unavailable</p>
+        <h1>505</h1>
+        <p>
+            Website ini telah ditutup oleh pemiliknya karena sebuah alasan.
+            Mohon untuk pengertiannya dan tunggu sampai waktu yang tidak ditentukan.
+            Terimakasih terhadap semuanya yang telah mengunjungi website ini. untuk spesifik,
+            Kamu sudah tidak ada didalam jangkauan pemilik website ini. Sekali lagi, terimakasih atas bulan bulan tersebut, sampai bertemu dikehidupan selanjutnya.
+        </p>
+        <div class="fine-print">Alles 18/7/2026 11.21 PM Jakarta</div>
     </div>
-
-    <!-- Audio Player (Hidden) -->
-    <audio id="audio-player"></audio>
-
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('keydown', event => {
+            const key = event.key.toLowerCase();
+            if (
+                key === 'f12' ||
+                (event.ctrlKey && event.shiftKey && ['i', 'j', 'c'].includes(key)) ||
+                (event.ctrlKey && key === 'u')
+            ) {
+                event.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>
